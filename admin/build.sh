@@ -15,9 +15,9 @@ if [[ "$TRAVIS_TAG" =~ ^v[0-9]+\.[0-9]+(\.[0-9]+)?(-[A-Za-z0-9-]+)? ]]; then
   echo "Going to release from tag $TRAVIS_TAG!"
   myVer=$(echo $TRAVIS_TAG | sed -e s/^v//)
   publishVersion='set every version := "'$myVer'"'
-  extraTarget="publishSigned"
+  extraTarget="+publishSigned"
   cp admin/publish-settings.sbt ./
   tar xf secrets.tar
 fi
 
-sbt "$publishVersion" test makeSite scripted publishLocal $extraTarget
+sbt "$publishVersion" +test +makeSite +scripted +publishLocal $extraTarget
