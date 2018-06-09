@@ -7,9 +7,9 @@ lazy val root = project.in(file("."))
   .disablePlugins(BintrayPlugin, ScriptedPlugin)
   .settings(inThisBuild(Seq(
     organization := "com.novocode",
-    version := "0.5-SNAPSHOT",
-    scalaVersion := "2.12.5",
-    crossScalaVersions := Seq("2.11.12", "2.12.5"),
+    version := "0.6-SNAPSHOT",
+    scalaVersion := "2.12.6",
+    crossScalaVersions := Seq("2.11.12", "2.12.6"),
     scalacOptions ++= Seq("-deprecation", "-unchecked"),
     homepage := Some(url("https://szeiger.github.io/ornate-doc/")),
     scmInfo := Some(ScmInfo(url("https://github.com/szeiger/ornate"), "git@github.com:szeiger/ornate.git")),
