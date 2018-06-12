@@ -60,10 +60,10 @@ object OrnatePlugin extends AutoPlugin {
       Thread.currentThread.setContextClassLoader(loader)
       val cl = loader.loadClass("com.novocode.ornate.Main")
       val runToStatus = cl.getMethod("runToStatus", classOf[Array[String]])
-      val res = runToStatus.invoke(null, args.toArray).asInstanceOf[Array[AnyRef]]
+      val res: Array[AnyRef] = runToStatus.invoke(null, args.toArray).asInstanceOf[Array[AnyRef]]
       val status = res(0).asInstanceOf[Int]
       val outDir = res(1).asInstanceOf[String]
-      if(status != 0) throw new RuntimeException("Ornate run failed with status code "+res)
+      if(status != 0) throw new RuntimeException(s"Ornate run failed with status code ${res.toList}")
       if(outDir ne null) file(outDir)
       else ornateTargetDir.value.getOrElse(null)
     } finally {

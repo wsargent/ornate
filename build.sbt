@@ -41,7 +41,7 @@ lazy val root = project.in(file("."))
     }
   )
 
-val commonMarkVersion = "0.7.1"
+val commonMarkVersion = "0.11.0"
 
 lazy val core = project.in(file("core"))
   .enablePlugins(SbtTwirl)
@@ -54,25 +54,25 @@ lazy val core = project.in(file("core"))
       "com.atlassian.commonmark" % "commonmark-ext-gfm-strikethrough" % commonMarkVersion,
       "com.atlassian.commonmark" % "commonmark-ext-autolink" % commonMarkVersion,
       "com.atlassian.commonmark" % "commonmark-ext-ins" % commonMarkVersion,
-      "com.typesafe" % "config" % "1.3.0",
-      "org.slf4j" % "slf4j-api" % "1.7.18",
-      "org.scala-lang.modules" %% "scala-xml" % "1.0.5",
+      "com.typesafe" % "config" % "1.3.1",
+      "org.slf4j" % "slf4j-api" % "1.7.25",
+      "org.scala-lang.modules" %% "scala-xml" % "1.0.6",
       "com.github.pathikrit" %% "better-files" % "2.17.1",
-      "com.typesafe.play" %% "play-json" % "2.6.9",
-      "org.webjars" % "webjars-locator-core" % "0.31",
-      "org.webjars.npm" % "highlight.js" % "9.6.0",
+      "com.typesafe.play" %% "play-json" % "2.6.7",
+      "org.webjars" % "webjars-locator-core" % "0.33",
+      "org.webjars.npm" % "highlight.js" % "9.12.0",
       "org.webjars.npm" % "emojione" % "2.2.6",
       "org.webjars.npm" % "elasticlunr" % "0.9.5",
-      "org.webjars.npm" % "jquery" % "2.2.4",
-      "org.webjars.npm" % "what-input" % "2.1.1",
+      "org.webjars.npm" % "jquery" % "3.2.1",
+      "org.webjars.npm" % "what-input" % "4.2.0",
       "org.webjars.npm" % "csso" % "2.2.1",
-      "org.webjars.npm" % "mathjax" % "2.7.0",
+      "org.webjars.npm" % "mathjax" % "2.7.1",
       "org.webjars" % "foundation-icon-fonts" % "d596a3cfb3",
       "org.webjars" % "font-awesome" % "4.7.0",
       "com.googlecode.htmlcompressor" % "htmlcompressor" % "1.5.2",
       "rhino" % "js" % "1.7R2", // Only needed because HtmlCompressor unnecessarily references org.mozilla.javascript.ErrorReporter
       "com.google.javascript" % "closure-compiler" % "v20160911",
-      "ch.qos.logback" % "logback-classic" % "1.1.6",
+      "ch.qos.logback" % "logback-classic" % "1.2.3",
       "com.novocode" % "junit-interface" % "0.11" % "test"
     ),
     testOptions += Tests.Argument(TestFrameworks.JUnit, "-q", "-v", "-s", "-a"),
@@ -85,7 +85,7 @@ lazy val plugin = project.in(file("plugin"))
   .settings(
     name := "sbt-ornate",
     sbtPlugin := true,
-    crossScalaVersions := Seq("2.12.5"),
+    crossScalaVersions := Seq("2.12.6"),
     buildInfoKeys := Seq[BuildInfoKey](organization, name in core, version, scalaVersion in core),
     buildInfoPackage := "com.novocode.ornate.sbtplugin",
     scriptedLaunchOpts ++= Seq("-Xmx1024M", "-Dplugin.version=" + version.value),
